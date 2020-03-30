@@ -1,0 +1,110 @@
+import java.util.Scanner;
+
+public class Nima {
+
+	public static void main(String[] args) {
+
+			System.out.println("Welcm blah");
+			int UB,IS ;    
+			int i=2;
+			int j;
+			Nimplayer player,player1,player2;
+			int removestone;
+			int currentPlayer = 1;
+			
+			Scanner sc = new Scanner(System.in);
+				System.out.println("Enter max no. of stones:"); 
+				UB = sc.nextInt();  
+			
+				System.out.println("Enter initial no. of stones:"); 
+				IS = sc.nextInt();  
+				
+			//String p1; 
+			
+				System.out.println ("Player 1's Name:");
+				player1 = new Nimplayer() ;
+				player1.getName();
+			//p1 = sc.next();  
+				
+			//String p2; 
+			
+				System.out.println("Player 2's Name:"); 
+				player2 = new Nimplayer() ;
+				player2.getName();
+				//p2 = sc.next();  
+				
+				while (IS>0)
+				{	
+					
+					if (i%2 == 0 )
+					{
+						player=player1 ;
+						currentPlayer = 1;
+					}
+					else
+					{
+						player=player2 ;
+						currentPlayer = 2;
+					}
+					i++ ;
+					
+		
+					System.out.print (IS + " stones left: " );
+					String str = "*" ;
+					
+					for(j = 0; j < IS; j++) {
+						System.out.print (str);
+					}
+					
+					removestone = player.removeStone() ;
+					
+					//System.out.println() ;
+					//System.out.println (player +"'s turn - remove how many?") ;
+					
+					//Scanner sc1 = new Scanner(System.in);
+					//removestone = sc1.nextInt();
+					
+					if(removestone > UB)
+					{
+						System.out.println ("Invalid number") ;
+						continue;
+					}
+					
+					IS = IS - removestone ;
+					
+				}
+				
+				
+				if(currentPlayer == 1)
+					System.out.println (player2 + " wins") ;
+				else
+					System.out.println (player1 + " wins") ;
+				
+	}
+	public class Nimplayer {
+		  String playername ; 
+		 
+		 public int removeStone ()
+		 {
+			System.out.println (playername +"'s turn - remove how many?") ;	
+			Scanner sc2 = new Scanner(System.in);
+			int removestone = sc2.nextInt();
+			return removestone;
+			
+		 }
+		 
+		 public void getName ()
+		 {
+			 Scanner sc3 = new Scanner(System.in);
+			 playername = sc3.next () ;
+		 }
+		
+		
+	}
+
+	
+}
+
+
+
+
